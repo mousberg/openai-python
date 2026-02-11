@@ -142,7 +142,7 @@ def parse_chat_completion(
 
         choices.append(
             construct_type_unchecked(
-                type_=cast(Any, ParsedChoice)[solve_response_format_t(response_format)],
+                type_=ParsedChoice[ResponseFormatT],
                 value={
                     **choice.to_dict(),
                     "message": {
@@ -157,15 +157,12 @@ def parse_chat_completion(
             )
         )
 
-    return cast(
-        ParsedChatCompletion[ResponseFormatT],
-        construct_type_unchecked(
-            type_=cast(Any, ParsedChatCompletion)[solve_response_format_t(response_format)],
-            value={
-                **chat_completion.to_dict(),
-                "choices": choices,
-            },
-        ),
+    return construct_type_unchecked(
+        type_=ParsedChatCompletion[ResponseFormatT],
+        value={
+            **chat_completion.to_dict(),
+            "choices": choices,
+        },
     )
 
 
