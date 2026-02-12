@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import inspect
 from types import TracebackType
-from typing import TYPE_CHECKING, Any, Generic, Callable, Iterable, Awaitable, AsyncIterator, cast
+from typing import TYPE_CHECKING, Generic, Callable, Iterable, Awaitable, AsyncIterator, cast
 from typing_extensions import Self, Iterator, assert_never
 
 from jiter import from_json
